@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>TechBank</title>
+    <h1><img class="bankimg" src="bankimg.png"></h1>
+    <h2>Welcome to TechBank, please enter your credentials.</h2>
+</head>
+<body>
+    <div class="centera">
+        <label for="username"><b>Enter your name:</b></label>
+        <input type="text" id="username" placeholder="name here"><br><br>
+
+        <label for="username"><b>Enter your phone number:</b></label>
+        <input type="text" id="username" placeholder="number here"><br><br>
+
+        <label for="username"><b>Enter your username:</b></label>
+        <input type="text" id="username" placeholder="username"><br><br>
+
+        <label for="username"><b>Enter your password:</b></label>
+        <input type="text" id="username" placeholder="password"><br><br>
+        
+
+        <label for="answer"><b>Select a Secret Question: </b></label>
+        <select id="question">
+          <option value="">Select a question</option>
+          <option value="question1">Enter your 1st school name</option>
+          <option value="question2">Enter your pet name</option>
+          <option value="question3">Enter your favourite car name</option>
+        </select>
+        <br><br>
+        <label for="answer"><b>Your Answer: </b></label>
+        <input type="text" id="answer" placeholder="Enter your answer">
+        <button id="submit-button">Submit Answer</button>
+        <div id="answer-store"></div><br><br>
+        <label>Hold onto fingerprint-sensor</label>
+        <br><Br>
+        <div class="container">
+            
+                <div class="form-group touchpad" id="touchpad">
+                    <img src="fingerprint.png" alt="Fingerprint" class="fingerprint">
+                    <p>Touch and hold for 4 seconds</p>
+                </div>
+                <div class="message" id="message"></div>
+                <button type="submit" id="loginButton" disabled><a href="home/index.html">Login</a></button>
+                <label>or</label><button>Sign up</button>
+            </form>
+        </div>
+    
+        <script src="java2.js"></script>
+    </div>
+</body>
+</html>

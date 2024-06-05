@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Voice Interaction Demo</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #message, #question, #answer {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="message">Please say "Login" to begin.</div>
+  <div id="answer"></div>
+
+  <script>
+    const originalUsername = "user"; // Replace with actual username
+    const originalPassword = "name"; // Replace with actual password
+
+    const messageElement = document.getElementById('message');
+    const answerElement = document.getElementById('answer');
+
+    let recognition = new (webkitSpeechRecognition || SpeechRecognition)();
+    let isListening = false;
+    let step = 0;
+
+    recognition.continuous = false;
+
+    recognition.onresult = (event) => {
+      const speechText = event.results[0][0].transcript.toLowerCase();
+      console.log("Recognized:", speechText);
+
+      switch (step) {
+        case 0:
+          if (speechText.includes("login")) {
+            step = 1;
+            messageElement.textContent = "Please say your username.";
+          }
+          break;
+        case 1:
+          const username = speechText;
+          step = 2;
+          messageElement.textContent = "Please say your password.";
+          break;
+        case 2:
+          const password = speechText;
+          if (username === originalUsername && password === originalPassword) {
+            messageElement.textContent = "Login successful! Redirecting...";
+            setTimeout(() => {
+              window.location.href = "index.html"; // Redirect after 2 seconds
+            }, 2000); 
+          } else {
+            messageElement.textContent = "Incorrect username or password. Please try again.";
+            step = 0;
+          }
+          break;
+      }
+    };
+
+    recognition.onerror = (event) => {
+      console.error('Error occurred during speech recognition:', event);
+      messageElement.textContent = 'Error occurred during speech recognition. Please try again.';
+      step = 0; // Reset to initial step on error
+    };
+
+    recognition.onend = () => {
+      if (isListening) {
+        recognition.start();
+      }
+    };
+
+    recognition.start();
+    isListening = true;
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+.bankimg {
+    height: 150px;
+    width:400px;
+    display: block;
+    margin: 0 auto;
+  }
+  h2{
+    text-align: center;
+  }
+  .centera{
+    text-align: center;
+    font-size:20px;
+  }
+.fingerprint{
+  height: 100px;
+}
+button {
+  padding: 1px 20px; /* Increase padding for bigger size */
+  font-size: 0.9em; /* Increase font size for bigger text */
+}
+.centera button {
+  margin: 10px;  /* Adds 10px margin around each button within the .centera class */
+}
+input {
+  width: 130px; /* Sets width to 300 pixels */
+  height: 25px; /* Sets height to 50 pixels */
+}
+body{
+  background-color:rgb(206, 250, 208);
+}
